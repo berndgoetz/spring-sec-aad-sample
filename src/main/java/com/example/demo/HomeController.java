@@ -19,6 +19,7 @@ import java.security.Principal;
 
 @Controller
 public class HomeController {
+
     @Autowired
     private OAuth2AuthorizedClientService authorizedClientService;
 
