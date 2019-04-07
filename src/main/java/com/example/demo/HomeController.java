@@ -15,6 +15,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.security.Principal;
+
 @Controller
 public class HomeController {
     @Autowired
@@ -35,7 +37,7 @@ public class HomeController {
     }
 
     @GetMapping("/")
-    public String index(Model model, OAuth2AuthenticationToken authentication) {
+    public String index(Model model, OAuth2AuthenticationToken authentication, Principal principal) {
         final OAuth2AuthorizedClient authorizedClient =
                 this.authorizedClientService.loadAuthorizedClient(
                         authentication.getAuthorizedClientRegistrationId(),
